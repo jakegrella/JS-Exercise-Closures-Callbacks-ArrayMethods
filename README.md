@@ -42,6 +42,8 @@ Find the file `index.js` and complete the tasks until your tests are passing.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+  Closure is what gives us the ability to put functions together. The way that closures work allow us access to an outer function's scope from an inner function, enforcing the idea of inheritance.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +65,13 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+  Closure is used on the line where the child function is created and opened, since it now creates inheritance where the inside function can access anything inside personalDice(like the argument for `name`), but personalDice cannot access anything inside the child funciton.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+  When calling `dansRoll` twice, "Dan rolled a " is always the same, while the number changes.
+
 c. What is the lexical scope of `newRoll`? 
+  the lexical scope of `newRoll` is the return function.
 
 ### Task 3 - Stretch Goals
 
