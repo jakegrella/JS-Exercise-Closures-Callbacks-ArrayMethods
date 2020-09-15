@@ -33,8 +33,8 @@ function processFirstItem(stringList, callback) {
  *  counter1 uses a closure since there is the function counter() is inside the function counterMaker().
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *  counter1 would be preferable 
- *  counter2 would be preferable
+ *  counter1 would be preferable if any changes needed to be made to the starting point
+ *  counter2 would be preferable for a quick test
 */
 
 // counter1 code
