@@ -155,3 +155,17 @@ function scoreboard(inning, numInnings) {
 }//end function
 
 console.log(scoreboard(inning, 9))
+
+// test function used to help another student
+// function passedFunction() {
+//   return 'I want to use this in another function'
+// }
+
+// function testFunction(passed) {
+//   return passed
+// }
+
+// console.log(testFunction(passedFunction()))
+
+
+
