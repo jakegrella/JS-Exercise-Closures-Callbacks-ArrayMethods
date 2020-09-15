@@ -116,16 +116,42 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(getInningScore, inning, numInnings) {
+// function scoreboard(getInningScore, inning, numInnings) {
+//   let scores = []
+//   for(let i=0; i < numInnings; i++) {
+//     scores.push(`${i+1} ${getInningScore(inning)}`)
+//   }
+//   return scores
+// }
+
+// function getInningScore(inning) {
+//   return `Inning: ${inning()} - ${inning()}`
+// }
+
+// console.log(scoreboard(getInningScore, inning, 3))
+
+// function scoreboard(cbGetInningScore, cbInning, numInnings)
+function scoreboard(inning, numInnings) {
+  let scores = []
+  let homeTotal = 0
+  let awayTotal = 0
   for(let i=0; i < numInnings; i++) {
-    console.log(`${i+1} ${getInningScore(inning)}`)
-  }
-}
+    let homeScore = inning()
+    homeTotal += homeScore
+    let awayScore = inning()
+    awayTotal += awayScore
+    if(i === 0){
+      scores.push(`${i+1}st inning: Home ${homeScore} - Away ${awayScore}`)
+    } else if(i === 1){
+      scores.push(`${i+1}nd inning: Home ${homeScore} - Away ${awayScore}`)
+    } else if(i === 2){
+      scores.push(`${i+1}rd inning: Home ${homeScore} - Away ${awayScore}`)
+    } else {
+      scores.push(`${i+1}th inning: Home ${homeScore} - Away ${awayScore}`)
+    }// end else
+  }// end loop
+  scores.push(`Final Score: Home ${homeTotal} - Away ${awayTotal}`)
+  return scores
+}//end function
 
-function getInningString(inning) {
-  let homeScore = 0;
-  let awayScore = 0;
-  return `Inning: ${inning()} - ${inning()}`
-}
-
-console.log(scoreboard(getInningString, inning, 5))
+console.log(scoreboard(inning, 9))
