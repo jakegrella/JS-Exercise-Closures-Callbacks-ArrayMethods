@@ -42,6 +42,8 @@ Find the file `index.js` and complete the tasks until your tests are passing.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+  Closure is what gives us the ability to put functions together. The way that closures work allow us access to an outer function's scope from an inner function, enforcing the idea of inheritance.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +65,13 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+  Closure is used on the line where the child function is created and opened, since it now creates inheritance where the inside function can access anything inside personalDice(like the argument for `name`), but personalDice cannot access anything inside the child funciton.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+  When calling `dansRoll` twice, "Dan rolled a " is always the same, while the number changes.
+
 c. What is the lexical scope of `newRoll`? 
+  the lexical scope of `newRoll` is the return function.
 
 ### Task 3 - Stretch Goals
 
@@ -73,6 +80,18 @@ After you have completed the requirements, **create** a new file called `stretch
 See if you can complete one or more of the following challenges:
 
 1. Predict the output of the code below and explain why this is the output using what you learned today. When you're ready for answers, view an explanation [here](https://www.coderbyte.com/algorithm/3-common-javascript-closure-questions
+  I predict the output will be `false` and then `true`, meaning a is unedfined while b is defined. I believe using this syntax, a is a copy of b which is set to a value of 3.
+
+  After researching the answer, it looks like I was correct but for the wrong reason. 
+  ```js
+  //I thought it was:
+  var a = b
+  var b = 3
+  //When in reality it is:
+  var a = b
+  b = 3
+  Leaving a defined in local scope and b in global scope.
+  ```
 
 ```js
 (function(){
@@ -89,9 +108,41 @@ var addSix = createBase(6);
 addSix(10); // returns 16
 addSix(21); // returns 27
 ```
+My Attempt:
+```js
+function addSix(num) {
+  return num+6
+}
+```
+Correct:
+```js
+function createBase(baseNumber) {
+  return function(N)
+    return baseNumber + N
+}
+```
+I knew I needed to return another function, but I wasn't sure how to implement adding siz based off the description. Maskes sense.
 
 3. Research the differences between functional programming and object oriented programming. Then, describe the pros and cons of functional programming vs object-oriented programming. This is a common interview question and great practice!
-
+Functional Prograaming - Emphasis on evaluating functions
+Pros:
+- Often easier to understand because of predictable structure
+- Easier to test
+- Nested functions
+- HOF
+Cons:
+- Recursion, commonly used in FP, takes lots of data
+- immutable data strucutres
+ 
+Object Oriented Programming - Based around objects
+Pros:
+- Abstraction
+- Inheritance 
+- Faster development
+- Typically follows format that most people solve problems
+Cons:
+- Steep learning curve
+- Not suitable for all problem types
 
 
 ## Resources
